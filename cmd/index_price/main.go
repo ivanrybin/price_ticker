@@ -15,9 +15,9 @@ func main() {
 
 	// mock subscribers for prices generation
 	subscribers := []task.PriceStreamSubscriber{
-		mocks.ConstantPriceStreamSubscriber(ctx, time.Second*1, 100),
-		mocks.ConstantPriceStreamSubscriber(ctx, time.Second*1, 101),
-		mocks.RandomPriceStreamSubscriber(ctx, time.Second*1, 98, 102),
+		mocks.ConstantPriceStreamSubscriber(ctx, time.Second*15, 100),
+		mocks.ConstantPriceStreamSubscriber(ctx, time.Second*30, 101),
+		mocks.RandomPriceStreamSubscriber(ctx, time.Second*45, 98, 102),
 	}
 
 	// streams (wrappers on TickerPrices and errors channels)
