@@ -79,7 +79,7 @@ func CalculateIndexPrice(t time.Time, ss []PriceStream, relevantOffset time.Dura
 	prices := make([]string, 0, len(ss))
 	for _, stream := range ss {
 		tp, ok := MostRelevantStreamTickerPrice(t, stream)
-		if ok && (tp.Time.Before(t) || tp.Time.Equal(t)) && tp.Time.Sub(t) <= relevantOffset {
+		if ok && (tp.Time.Before(t) || tp.Time.Equal(t)) && t.Sub(tp.Time) <= relevantOffset {
 			// ok: Time in [t - relevantOffset:t]
 			prices = append(prices, tp.Price)
 		}
